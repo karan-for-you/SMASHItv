@@ -1,5 +1,6 @@
 package com.example.smashitvmvvm.ui.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
@@ -28,10 +29,10 @@ class AuthActivity : BaseActivity(), AuthHandler {
     }
 
     override fun onLoginClicked() {
-
+        startActivity(Intent(applicationContext,LoginActivity::class.java))
     }
 
     override fun onSignUpClicked() {
-
+        startActivity(Intent(applicationContext,SignUpActivity::class.java))
     }
 }

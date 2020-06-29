@@ -303,6 +303,7 @@
     <string name="sign_up">Sign Up</string>
     <string name="trial_text">Avail your free trial for 7 days</string>
     <string name="welcome_message">مرحباً بعودتك إلى سماشي. سجّل الدخول لمشاهدة آخر الأخبار والأفكار عن كل ما يتعلق بإدارة الأعمال والتقنية والإعلام والثقافة.</string>
+    <string name="name">Name</string>
 
 
 </resources>

@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.smashitvmvvm.ui.viewmodel.SignUpViewModel" />
+
+        <variable
+            name="handler"
+            type="com.example.smashitvmvvm.ui.handler.SignUpHandler" />
+    </data>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <!--<com.facebook.login.widget.LoginButton
+        android:id="@+id/button_facebook"
+        android:layout_width="200dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:visibility="invisible" />
+
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/button_gmail"
+        android:layout_width="200dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="10dp"
+        android:visibility="invisible" />-->
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:layout_above="@id/svAuth"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:src="@drawable/saturation_arabic_orange" />
+
+    <RelativeLayout
+        android:id="@+id/svAuth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:id="@+id/llInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/imagefreeTrail"
+                    android:layout_width="230dp"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/black"
+                    android:clickable="false"
+                    android:drawableEnd="@drawable/circle"
+                    android:drawablePadding="6dp"
+                    android:fontFamily="@font/expo_arabic_book"
+                    android:gravity="fill"
+                    android:text="@string/free_trial"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+
+                <Button
+                    android:id="@+id/imageOnleLiveNews"
+                    android:layout_width="230dp"
+                    android:layout_height="20dp"
+                    android:background="@color/black"
+                    android:clickable="false"
+                    android:drawableEnd="@drawable/circle"
+                    android:drawablePadding="6dp"
+                    android:fontFamily="@font/expo_arabic_book"
+                    android:gravity="fill"
+                    android:text="@string/onLiveNews"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+
+
+                <Button
+                    android:id="@+id/imageunlimitedFreeVideos"
+                    android:layout_width="230dp"
+                    android:layout_height="20dp"
+                    android:background="@color/black"
+                    android:clickable="false"
+                    android:drawableEnd="@drawable/circle"
+                    android:drawablePadding="6dp"
+                    android:fontFamily="@font/expo_arabic_book"
+                    android:gravity="fill"
+                    android:text="@string/unlimited_onDemand_videos"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+
+                <!--<Button
+                    android:id="@+id/imageNoCreditCardRequired"
+                    android:layout_width="230dp"
+                    android:layout_height="20dp"
+                    android:background="@color/black"
+                    android:clickable="false"
+                    android:drawableEnd="@drawable/circle"
+                    android:drawablePadding="6dp"
+                    android:fontFamily="@font/expo_arabic_book"
+                    android:gravity="fill"
+                    android:text="@string/no_creditCard_Required"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />-->
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="5dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/logo_withoutBG"
+                    android:layout_width="75dp"
+                    android:layout_height="65dp"
+                    android:layout_marginTop="12dp"
+                    android:src="@drawable/new_hammer" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <!--<EditText
+            android:id="@+id/editTextEmail"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_below="@id/llInfo"
+            android:layout_marginLeft="@dimen/thirtydp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="@dimen/thirtydp"
+            android:autofillHints=""
+            android:background="@drawable/text_corner"
+            android:fontFamily="@font/expo_arabic_book"
+            android:gravity="right"
+            android:hint="@string/first_name"
+            android:inputType="textEmailAddress"
+            android:paddingTop="13dp"
+            android:paddingEnd="5dp"
+            android:paddingBottom="4dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textCursorDrawable="@drawable/cursor_color"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/editTextEmailSignup"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_below="@+id/editTextEmail"
+            android:layout_marginLeft="@dimen/thirtydp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="@dimen/thirtydp"
+            android:autofillHints=""
+            android:background="@drawable/text_corner"
+            android:fontFamily="@font/expo_arabic_book"
+            android:gravity="right"
+            android:hint="@string/name_username_or_id"
+            android:inputType="textEmailAddress"
+            android:paddingTop="13dp"
+            android:paddingEnd="5dp"
+            android:paddingBottom="4dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textCursorDrawable="@drawable/cursor_color"
+            android:textSize="20sp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/editTextPassSignup"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_below="@+id/editTextEmailSignup"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/text_corner"
+            android:gravity="center"
+            android:layoutDirection="rtl"
+            android:textColorHint="@color/white"
+            app:hintEnabled="false"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTintMode="screen">
+
+
+            <EditText
+                android:id="@+id/etPassword"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="right"
+                android:background="@null"
+                android:drawableEnd="@drawable/eye"
+                android:fontFamily="@font/expo_arabic_book"
+                android:gravity="right"
+                android:hint="@string/pass"
+                android:inputType="textPassword"
+                android:paddingTop="4dp"
+                android:paddingEnd="5dp"
+                android:paddingRight="5dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:textCursorDrawable="@drawable/cursor_color"
+                android:textSize="20sp" />
+        </com.google.android.material.textfield.TextInputLayout>-->
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilName"
+            app:errorEnabled="true"
+            app:errorTextColor="@color/colorRedBtn"
+            app:errorIconTintMode="screen"
+            app:hintEnabled="false"
+            app:hintTextColor="@color/white"
+            android:layout_below="@id/llInfo"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp">
+
+            <EditText
+                android:id="@+id/etName"
+                android:inputType="textPersonName"
+                android:hint="Name"
+                android:textColorHint="@color/white"
+                android:layout_width="match_parent"
+                android:text="@={viewModel.name}"
+                app:onNameChangedListener="@{viewModel.nameListener}"
+                android:fontFamily="@font/expo_arabic_book"
+                android:textColor="@color/white"
+                android:layout_height="45dp"
+                android:padding="3dp"
+                android:backgroundTint="@color/colorWhite" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilEmail"
+            app:errorEnabled="true"
+            app:errorTextColor="@color/colorRedBtn"
+            app:errorIconTintMode="screen"
+            app:hintEnabled="false"
+            app:hintTextColor="@color/white"
+            android:layout_below="@id/tilName"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp">
+
+            <EditText
+                android:id="@+id/etEmail"
+                android:hint="Email"
+                app:onEmailChangedListener="@{viewModel.emailListener}"
+                android:textColorHint="@color/white"
+                android:layout_width="match_parent"
+                android:text="@={viewModel.email}"
+                android:fontFamily="@font/expo_arabic_book"
+                android:textColor="@color/white"
+                android:layout_height="45dp"
+                android:padding="3dp"
+                android:backgroundTint="@color/white" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilPassword"
+            app:errorEnabled="true"
+            app:errorTextColor="@color/colorRedBtn"
+            app:errorIconTintMode="screen"
+            android:layout_below="@id/tilEmail"
+            app:hintEnabled="false"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTintMode="screen"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp">
+
+            <EditText
+                android:id="@+id/etPassword"
+                android:hint="Password"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:text="@={viewModel.password}"
+                app:onPasswordTextListener="@{viewModel.passwordListener}"
+                android:fontFamily="@font/expo_arabic_book"
+                android:textColorHint="@color/white"
+                android:layout_height="45dp"
+                android:padding="3dp"
+                android:backgroundTint="@color/white"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/rvTermsCheck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tilPassword"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="30dp"
+            android:layoutDirection="rtl">
+
+            <TextView
+                android:id="@+id/tvOpenTerms"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_toEndOf="@+id/cbTermsConditions"
+                android:fontFamily="@font/expo_arabic_book"
+                android:text="@string/mandatory_accept_conditions"
+                android:textColor="@color/white" />
+
+            <CheckBox
+                android:id="@+id/cbTermsConditions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/white"
+                android:checked="@={viewModel.termsAndConditionCheck}" />
+
+
+        </RelativeLayout>
+
+
+        <CheckBox
+            android:id="@+id/newsletterCheck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rvTermsCheck"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="30dp"
+            android:buttonTint="@color/white"
+            android:checked="@={viewModel.newsLetterCheck}"
+            android:fontFamily="@font/expo_arabic_book"
+            android:gravity="center"
+            android:layoutDirection="rtl"
+            android:text="@string/newsletter_receiving"
+            android:textColor="@color/white" />
+
+        <CheckBox
+            android:id="@+id/notificationsCheck"
+            android:layoutDirection="rtl"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/newsletterCheck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="30dp"
+            android:buttonTint="@color/white"
+            android:checked="@={viewModel.notificationsCheck}"
+            android:fontFamily="@font/expo_arabic_book"
+            android:gravity="center"
+            android:text="@string/notifications_receiving"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/buttonSignup"
+            android:onClick="@{()->handler.onSignUpClicked()}"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/notificationsCheck"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/btnbackground"
+            android:fontFamily="@font/expo_arabic_book"
+            android:gravity="center"
+            android:text="@string/signuptext"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/button_facebookart"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/buttonSignup"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/facebook_btn_selecter"
+            android:drawableStart="@drawable/facebook_icon_reducer"
+            android:drawableLeft="@drawable/facebook_icon_reducer"
+            android:fontFamily="@font/expo_arabic_book"
+            android:gravity="center"
+            android:paddingStart="4dp"
+            android:text="@string/login_with_facebook"
+            android:textColor="@color/facebook_color"
+            android:textSize="20sp" />
+
+
+        <Button
+            android:id="@+id/button_gmailart"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/button_facebookart"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/google_button_selecter"
+            android:drawableStart="@drawable/google_icon_reducer"
+            android:drawableLeft="@drawable/google_icon_reducer"
+            android:fontFamily="@font/expo_arabic_book"
+            android:gravity="center"
+            android:paddingStart="6dp"
+            android:text="@string/login_with_google"
+            android:textColor="@color/google_color"
+            android:textSize="20sp" />
+
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+        <!--<TextView
+            android:id="@+id/textAgreeTrems"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/expo_arabic_book"
+            android:gravity="center|bottom"
+            android:text="@string/acceptTremsandCondition"
+            android:textColor="@color/white"
+            android:textSize="12sp" />-->
+
+        <LinearLayout
+            android:id="@+id/llLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:id="@+id/textLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/expo_arabic_book"
+                android:text="@string/alreadyHaveAnAccountLogin"
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp" />
+
+
+            <TextView
+                android:id="@+id/textAlreadyHaveAnAccount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:fontFamily="@font/expo_arabic_book"
+                android:text="@string/alreadyHaveAnAccount"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>
+
+</layout>

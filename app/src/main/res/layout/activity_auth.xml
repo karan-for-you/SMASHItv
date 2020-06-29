@@ -33,6 +33,7 @@
 
         <Button
             android:id="@+id/btnLogin"
+            android:onClick="@{()->handler.onLoginClicked()}"
             style="@style/authButton"
             android:layout_marginStart="10dp"
             android:text="@string/login"
@@ -44,6 +45,7 @@
             android:id="@+id/btnSignUp"
             android:layout_marginEnd="10dp"
             style="@style/authButton"
+            android:onClick="@{()->handler.onSignUpClicked()}"
             android:text="@string/sign_up"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
