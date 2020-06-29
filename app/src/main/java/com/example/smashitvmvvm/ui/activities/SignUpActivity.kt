@@ -40,6 +40,7 @@ class SignUpActivity : BaseActivity(), SignUpHandler {
             Observer<String> { t ->
                 nameError = t
                 when (t) {
+                    ErrorConstants.EMPTY -> bindingSignUpBinding.tilName.error = "Name can't be empty"
                     ErrorConstants.LENGTH -> bindingSignUpBinding.tilName.error = "Name too short"
                     ErrorConstants.INVALID_CHAR -> bindingSignUpBinding.tilName.error = "Name contains invalid character"
                     ErrorConstants.NUMBER -> bindingSignUpBinding.tilName.error = "Name contains a number"
@@ -53,6 +54,7 @@ class SignUpActivity : BaseActivity(), SignUpHandler {
             Observer<String> { t ->
                 emailError = t
                 when (t) {
+                    ErrorConstants.EMPTY -> bindingSignUpBinding.tilEmail.error = "Email can't be empty"
                     ErrorConstants.LENGTH -> bindingSignUpBinding.tilEmail.error = "Email too short"
                     ErrorConstants.INVALID_EMAIL -> bindingSignUpBinding.tilEmail.error = "Invalid Email"
                     else -> bindingSignUpBinding.tilEmail.error = null
@@ -64,6 +66,7 @@ class SignUpActivity : BaseActivity(), SignUpHandler {
             Observer<String> { t ->
                 passwordError = t
                 when (t) {
+                    ErrorConstants.EMPTY -> bindingSignUpBinding.tilPassword.error = "Password can't be empty"
                     ErrorConstants.LENGTH -> bindingSignUpBinding.tilPassword.error = "Password should be of minimum 8 characters"
                     ErrorConstants.INVALID_PASSWORD -> bindingSignUpBinding.tilPassword.error = "Password must contain a capital letter, a special character and a number "
                     else -> bindingSignUpBinding.tilPassword.error = null
@@ -89,11 +92,11 @@ class SignUpActivity : BaseActivity(), SignUpHandler {
     }
 
     private fun checkEmpties(){
-        val fieldList = listOf(nameError,emailError,passwordError)
+        val errorFields = listOf(nameError,emailError,passwordError)
         val editTextList = listOf(bindingSignUpBinding.etName,bindingSignUpBinding.etEmail,bindingSignUpBinding.etPassword)
         val textInputLayoutFields = listOf(bindingSignUpBinding.tilName,bindingSignUpBinding.tilEmail,bindingSignUpBinding.tilPassword)
-        for(i in fieldList.indices){
-            if(fieldList[i] == "")
+        for(i in errorFields.indices){
+            if(errorFields[i] == "")
                 textInputLayoutFields[i].error = ""+editTextList[i].hint+" can't be empty"
         }
     }

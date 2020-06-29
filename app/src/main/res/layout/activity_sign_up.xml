@@ -229,8 +229,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tilName"
             app:errorEnabled="true"
-            app:errorTextColor="@color/colorRedBtn"
-            app:errorIconTintMode="screen"
+            app:errorTextColor="@color/red"
             app:hintEnabled="false"
             app:hintTextColor="@color/white"
             android:layout_below="@id/llInfo"
@@ -259,8 +258,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tilEmail"
             app:errorEnabled="true"
-            app:errorTextColor="@color/colorRedBtn"
-            app:errorIconTintMode="screen"
+            app:errorTextColor="@color/red"
             app:hintEnabled="false"
             app:hintTextColor="@color/white"
             android:layout_below="@id/tilName"
@@ -289,8 +287,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tilPassword"
             app:errorEnabled="true"
-            app:errorTextColor="@color/colorRedBtn"
-            app:errorIconTintMode="screen"
+            app:errorTextColor="@color/red"
             android:layout_below="@id/tilEmail"
             app:hintEnabled="false"
             app:passwordToggleEnabled="true"

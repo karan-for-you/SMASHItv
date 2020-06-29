@@ -7,7 +7,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.smashitvmvvm.consants.Constants
 import com.example.smashitvmvvm.consants.ErrorConstants
-import com.example.smashitvmvvm.model.ValidationErrorInfo
 import java.util.regex.Pattern
 
 class SignUpViewModel : ViewModel() {
@@ -24,12 +23,6 @@ class SignUpViewModel : ViewModel() {
     private val numberRegex = Regex(Constants.NUMBER_REGEX)
     private val emailRegex = Regex(Constants.EMAIL_REGEX)
     private val prdRegex  = Regex(Constants.PRD_REGEX)
-
-    var validationError = MutableLiveData<ValidationErrorInfo>()
-
-    fun getValidationError() : LiveData<ValidationErrorInfo>{
-        return validationError
-    }
 
     var nameValidator = MutableLiveData<String>()
 
@@ -54,6 +47,7 @@ class SignUpViewModel : ViewModel() {
         override fun afterTextChanged(p0: Editable?) {
             name = p0.toString()
             when {
+                name.isEmpty() -> nameValidator.value = ErrorConstants.EMPTY
                 name.length < 5 -> nameValidator.value = ErrorConstants.LENGTH
                 characterRegex.matcher(name).find() -> nameValidator.value = ErrorConstants.INVALID_CHAR
                 name.matches(numberRegex) -> nameValidator.value = ErrorConstants.NUMBER
@@ -68,6 +62,7 @@ class SignUpViewModel : ViewModel() {
         override fun afterTextChanged(p0: Editable?) {
             email = p0.toString()
             when {
+                email.isEmpty() -> emailValidator.value = ErrorConstants.EMPTY
                 email.length < 5 -> emailValidator.value = ErrorConstants.LENGTH
                 !(email.matches(emailRegex)) -> emailValidator.value = ErrorConstants.INVALID_EMAIL
                 else -> emailValidator.value = ErrorConstants.NO_ERROR
@@ -81,6 +76,7 @@ class SignUpViewModel : ViewModel() {
         override fun afterTextChanged(p0: Editable?) {
             password = p0.toString()
             when {
+                password.isEmpty() -> passwordValidator.value = ErrorConstants.EMPTY
                 password.length < 8 -> passwordValidator.value = ErrorConstants.LENGTH
                 !(password.matches(prdRegex)) -> passwordValidator.value = ErrorConstants.INVALID_PASSWORD
                 else -> passwordValidator.value = "no_error"
@@ -88,26 +84,6 @@ class SignUpViewModel : ViewModel() {
         }
         override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
         override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
-    }
-
-
-
-    fun validateSignUpInfo(name : String, email : String, password : String){
-        val validationErrorInfo = ValidationErrorInfo()
-
-        if(name.length < 5){
-            validationErrorInfo.field = "name_field"
-            validationErrorInfo.error = "Name should be more than 5 characters"
-            validationError.value = validationErrorInfo
-        }
-
-        val pattern = Pattern.compile(Constants.PRD_REGEX)
-        if(!pattern.matcher(password).matches()){
-            validationErrorInfo.field = "pass_field"
-            validationErrorInfo.error = "Invalid Password"
-            validationError.value = validationErrorInfo
-        }
-
     }
 
 }

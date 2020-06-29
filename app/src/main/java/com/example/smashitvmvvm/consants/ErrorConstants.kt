@@ -1,6 +1,7 @@
 package com.example.smashitvmvvm.consants
 
 object ErrorConstants {
+    const val EMPTY = "empty"
     const val LENGTH = "len"
     const val INVALID_CHAR = "invalid_char"
     const val NUMBER = "number"
