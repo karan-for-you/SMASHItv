@@ -76,9 +76,11 @@ class SignUpActivity : BaseActivity(), SignUpHandler {
 
 
     override fun onSignUpClicked() {
-        if(checkForErrors())
-            showToast("Cleared")
-        else
+        if(checkForErrors()) {
+            if(bindingSignUpBinding.cbTermsConditions.isChecked){
+
+            }
+        } else
             checkEmpties()
     }
 

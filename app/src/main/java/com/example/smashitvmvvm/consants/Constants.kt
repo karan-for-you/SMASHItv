@@ -109,7 +109,7 @@ object Constants {
         "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-[\$&+,:;=?@#|'<>-^*()%!]]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})\$"
 
     const val NUMBER_REGEX = ".*\\d.*"
-    const val SPECIAL_CHAR_REGEX = "[\$&+,:;=?@#|'<>.^*()%!-]"
+    const val SPECIAL_CHAR_REGEX = "[\$&+,:;=?@#|'<>^*()%!-]"
 
 
 }

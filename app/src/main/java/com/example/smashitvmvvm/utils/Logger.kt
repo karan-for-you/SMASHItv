@@ -1,6 +1,7 @@
 package com.example.smashitvmvvm.utils
 
 import android.util.Log
+import com.example.smashitvmvvm.BuildConfig
 
 
 /**
@@ -8,7 +9,7 @@ import android.util.Log
  */
 class Logger {
     companion object {
-        private val DEBUG_MODE = true
+        private val DEBUG_MODE = BuildConfig.DEBUG
 
         fun logDebug(tag: String, message: String) {
             if (validateArguments(tag, message))
