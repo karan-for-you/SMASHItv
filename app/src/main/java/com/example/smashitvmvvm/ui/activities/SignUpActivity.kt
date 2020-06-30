@@ -4,18 +4,12 @@ import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.room.Room
 import com.example.smashitvmvvm.R
 import com.example.smashitvmvvm.consants.ErrorConstants
 import com.example.smashitvmvvm.databinding.ActivitySignUpBinding
-import com.example.smashitvmvvm.db.AppDatabase
-import com.example.smashitvmvvm.db.UserEntity
 import com.example.smashitvmvvm.ui.base.BaseActivity
 import com.example.smashitvmvvm.ui.handler.SignUpHandler
 import com.example.smashitvmvvm.ui.viewmodel.SignUpViewModel
-import com.example.smashitvmvvm.utils.Logger
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 
 class SignUpActivity : BaseActivity(), SignUpHandler {
 
@@ -33,6 +27,7 @@ class SignUpActivity : BaseActivity(), SignUpHandler {
         setupNameObserver()
         setupEmailObserver()
         setupPasswordObserver()
+        //setupButtonObserver()
     }
 
     private fun setupViewModelAndHandler(){
@@ -80,24 +75,34 @@ class SignUpActivity : BaseActivity(), SignUpHandler {
             })
     }
 
+    private fun setupButtonObserver(){
+        signUpViewModel.getButtonValidator().observe(this,
+            Observer<Boolean> { t ->
+                if(t!!)
+                    bindingSignUpBinding.imageView.background = getDrawable(R.drawable.btnbackground)
+                else
+                    bindingSignUpBinding.imageView.background = getDrawable(R.drawable.btnbackground_disabled)
+            })
+    }
+
 
     override fun onSignUpClicked() {
         if(checkForErrors()) {
             if(bindingSignUpBinding.cbTermsConditions.isChecked){
-                makeAddToDatabaseCall(
-                    bindingSignUpBinding.etName.text.toString(),
-                    bindingSignUpBinding.etEmail.text.toString(),
-                    bindingSignUpBinding.etPassword.text.toString()
+                signUpViewModel.insertInUserDb(
+                    bindingSignUpBinding.etName.text?.trim().toString(),
+                    bindingSignUpBinding.etEmail.text?.trim().toString(),
+                    bindingSignUpBinding.etPassword.text?.trim().toString()
                 )
-            }
+            }else showToast("Please accept the terms and conditions")
         } else
             checkEmpties()
     }
 
-    private fun checkForErrors(): Boolean{
-        val fieldList = listOf(nameError,emailError,passwordError)
-        for(s in fieldList){
-            if(s != ErrorConstants.NO_ERROR)
+    private fun checkForErrors(): Boolean {
+        val fieldList = listOf(nameError, emailError, passwordError)
+        for (s in fieldList) {
+            if (s != ErrorConstants.NO_ERROR)
                 return false
         }
         return true
@@ -111,20 +116,6 @@ class SignUpActivity : BaseActivity(), SignUpHandler {
             if(errorFields[i] == "")
                 textInputLayoutFields[i].error = ""+editTextList[i].hint+" can't be empty"
         }
-    }
-
-    private fun makeAddToDatabaseCall(name : String, email : String, password : String){
-        val db = Room.databaseBuilder(
-            applicationContext,
-            AppDatabase::class.java,
-            "user-list.db").build()
-
-        GlobalScope.launch {
-            val data = db.UserDaoInterface().getAll()
-            db.UserDaoInterface().insertAll(UserEntity((data.size)+1,name,email, password))
-            data.forEach { Logger.logError("DB Report",""+it.email+" "+it.name) }
-        }
-
     }
 
 
