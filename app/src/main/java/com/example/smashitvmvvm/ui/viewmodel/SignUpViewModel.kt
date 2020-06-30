@@ -12,7 +12,6 @@ import com.example.smashitvmvvm.networking.services.calls.auth.SignUpCall
 import okhttp3.ResponseBody
 import retrofit2.Response
 import java.util.regex.Pattern
-import kotlin.math.sign
 
 class SignUpViewModel : ViewModel(), NetworkCallResponse {
 
