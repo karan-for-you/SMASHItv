@@ -1,5 +1,6 @@
 package com.example.smashitvmvvm.ui.activities
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
@@ -94,6 +95,7 @@ class SignUpActivity : BaseActivity(), SignUpHandler {
                     bindingSignUpBinding.etEmail.text?.trim().toString(),
                     bindingSignUpBinding.etPassword.text?.trim().toString()
                 )
+                startActivity(Intent(this,MainActivity::class.java))
             }else showToast("Please accept the terms and conditions")
         } else
             checkEmpties()

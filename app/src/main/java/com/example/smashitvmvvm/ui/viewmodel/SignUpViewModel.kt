@@ -162,6 +162,9 @@ class SignUpViewModel(application : Application) : AndroidViewModel(application)
         viewModelScope.launch {
             val data = db.UserDaoInterface().getAll()
             db.UserDaoInterface().insertAll(UserEntity((data.size)+1,name,email,password))
+            for(d in data){
+                Logger.logError("DB Deets",""+d.id+" "+d.name+" "+d.email+" "+d.password)
+            }
         }
 
     }

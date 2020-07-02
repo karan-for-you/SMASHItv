@@ -304,6 +304,10 @@
     <string name="trial_text">Avail your free trial for 7 days</string>
     <string name="welcome_message">مرحباً بعودتك إلى سماشي. سجّل الدخول لمشاهدة آخر الأخبار والأفكار عن كل ما يتعلق بإدارة الأعمال والتقنية والإعلام والثقافة.</string>
     <string name="name">Name</string>
+    <string name="home_en">Home</string>
+    <string name="search_en">Search</string>
+    <string name="account_en">Account</string>
+    <string name="settings">Settings</string>
 
 
 </resources>
