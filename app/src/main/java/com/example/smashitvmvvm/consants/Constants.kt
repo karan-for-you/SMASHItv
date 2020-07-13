@@ -5,10 +5,12 @@ import com.google.android.gms.wallet.WalletConstants
 object Constants {
     // Fragment Tags
 
-    //const val HOME_FRAGMENT = "HOME_FRAGMENT"
-    //const val SEARCH_FRAGMENT = "SEARCH_FRAGMENT"
-    //const val ACCOUNT_FRAGMENT = "ACCOUNT_FRAGMENT"
-    //const val SETTINGS_FRAGMENT = "SETTINGS_FRAGMENT"
+    const val HOME_FRAGMENT = "HOME_FRAGMENT"
+    const val SEARCH_FRAGMENT = "SEARCH_FRAGMENT"
+    const val ACCOUNT_FRAGMENT = "ACCOUNT_FRAGMENT"
+    const val SETTINGS_FRAGMENT = "SETTINGS_FRAGMENT"
+
+
 
     const val HOME_FRAGMENT_VAL = "1"
     const val SEARCH_FRAGMENT_VAL = "2"

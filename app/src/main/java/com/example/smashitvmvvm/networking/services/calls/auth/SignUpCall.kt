@@ -19,7 +19,7 @@ class SignUpCall {
     ) {
         val webServiceInterface : WebServiceInterface = ServiceBuilder().buildClient(
             WebServiceInterface::class.java,
-            "https://www.smashi.tv")
+            "https://stage.smashi.tv")
         val jsonObject = prepareJSONData(name,email,password,newsletter,notificationsOpted)
         val postSignUpCall = webServiceInterface.postSignUp(jsonObject)
         val commonEnqueueValidator = CommonEnqueueValidator(postSignUpCall, mCallback, apiTag)

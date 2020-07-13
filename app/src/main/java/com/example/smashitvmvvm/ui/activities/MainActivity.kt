@@ -31,6 +31,14 @@ class MainActivity : BaseActivity(), MainHandler {
 
     private fun initUI(){
         bindingMainActivity.bottomNavView.itemIconTintList = null
+        setupHomeAsDefault()
+    }
+
+    private fun setupHomeAsDefault(){
+        // To highlight Home on bottom navigation view without listener
+        bindingMainActivity.bottomNavView.selectedItemId = R.id.home
+        // To invoke the actual listener placed in View Model
+        mainViewModel.setHomeLiveData()
     }
 
     private fun letAndRunInstances(){

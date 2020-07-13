@@ -13,6 +13,7 @@ import com.example.smashitvmvvm.consants.ErrorConstants
 import com.example.smashitvmvvm.db.AppDatabase
 import com.example.smashitvmvvm.db.UserEntity
 import com.example.smashitvmvvm.networking.services.NetworkCallResponse
+import com.example.smashitvmvvm.networking.services.calls.auth.FacebookLoginCall
 import com.example.smashitvmvvm.networking.services.calls.auth.SignUpCall
 import com.example.smashitvmvvm.utils.Logger
 import kotlinx.coroutines.launch
@@ -144,16 +145,39 @@ class SignUpViewModel(application : Application) : AndroidViewModel(application)
         newsletter = newsLetter,notificationsOpted = notifications, mCallback = this)
     }
 
+    fun makeFacebookLoginCall(facebookToken : String){
+        val facebookLoginCall = FacebookLoginCall()
+        facebookLoginCall.getFacebookCall(authToken = facebookToken, mCallback = this)
+    }
+
     // Network Ops
     override fun networkCallResponse(
         result: Boolean,
         apiTag: String,
         responseBody: Response<ResponseBody>
     ) {
+        if(apiTag == SignUpCall::class.java.simpleName)
+            handleSignUpCallResponse(result, responseBody)
+        else if(apiTag == FacebookLoginCall::class.java.simpleName)
+            handleFacebookLoginCall(result, responseBody)
 
     }
 
     override fun networkFailureResponse(result: Boolean, apiTag: String, throwable: Throwable) {
+        if(apiTag == SignUpCall::class.java.simpleName){
+
+        }
+    }
+
+    private fun handleSignUpCallResponse(result: Boolean, responseBody: Response<ResponseBody>){
+        if(result){
+
+        }else{
+
+        }
+    }
+
+    private fun handleFacebookLoginCall(result: Boolean, responseBody: Response<ResponseBody>){
 
     }
 

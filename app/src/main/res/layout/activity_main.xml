@@ -45,6 +45,7 @@
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottomNavView"
+            app:onBottomMenuItemChanged="@{viewModel.onBottomNavigationViewItemListener}"
             app:labelVisibilityMode="labeled"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
