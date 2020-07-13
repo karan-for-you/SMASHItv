@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.smashitvmvvm.ui.viewmodel.HomeViewModel" />
+
+        <variable
+            name="handler"
+            type="com.example.smashitvmvvm.ui.handler.HomeHandler" />
+
+    </data>
+
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar_home" />
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <!--<include android:id="@+id/toolbar"
+            layout="@layout/custom_toolbar_home"/>-->
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/playerView"
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="300dp"
+                android:visibility="visible" />
+
+            <RelativeLayout
+                android:id="@+id/rlImageHolder"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_gravity="center"
+                android:background="@color/orange_alpha"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <ImageView
+                    android:id="@+id/ivPlacebo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <ImageView
+                    android:id="@+id/ivSignUpPaywall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/iv_smashi_paywall_resized_2" />
+
+                <!--<TextView
+                    android:id="@+id/tvBuySubscription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="لمتابعة المزيد، عليك الاشتراك"
+                    android:textSize="26sp"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/expo_arabic_semi_bold"
+                    android:layout_centerInParent="true"/>-->
+
+            </RelativeLayout>
+        </FrameLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewRelated"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="50dp"
+        android:visibility="visible"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+    <LinearLayout
+        android:id="@+id/llRetry"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/expo_arabic_semi_bold"
+            android:text="@string/error_fetching_vods"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/btnRetryVODS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btnbackground_blue"
+            android:fontFamily="@font/expo_arabic_semi_bold"
+            android:padding="10dp"
+            android:text="@string/try_again"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+    <!--<ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="100dp"
+        android:layout_gravity="center" />-->
+
+    <ImageView
+        android:id="@+id/ivMallet"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/mallet_spinning" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+</layout>
